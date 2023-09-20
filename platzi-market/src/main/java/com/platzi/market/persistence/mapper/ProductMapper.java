@@ -1,6 +1,7 @@
 package com.platzi.market.persistence.mapper;
 
-import com.platzi.market.persistence.entity.Product;
+import com.platzi.market.domain.DomainProduct;
+import com.platzi.market.persistence.entity.EntityProduct;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -8,22 +9,22 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {ICategoryMapper.class})
-public interface IProductMapper {
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class})
+public interface ProductMapper {
 
     @Mappings({
-            @Mapping(source = "ProductId", target = "productId"),
-            @Mapping(source = "Name", target = "name"),
-            @Mapping(source = "CategotyId", target = "categoryId"),
-            @Mapping(source = "SalePrice", target = "price"),
-            @Mapping(source = "QuantityStock", target = "stock"),
-            @Mapping(source = "State", target = "active"),
-            @Mapping(source = "Category", target = "category"),
+            @Mapping(source = "productId", target = "productId"),
+            @Mapping(source = "name", target = "name"),
+            @Mapping(source = "categoryId", target = "categoryId"),
+            @Mapping(source = "salePrice", target = "price"),
+            @Mapping(source = "quantityStock", target = "stock"),
+            @Mapping(source = "state", target = "active"),
+            @Mapping(source = "category", target = "category"),
     })
-    com.platzi.market.domain.Product toProductDomain(Product product);
-    List<com.platzi.market.domain.Product> toProductsDomain(List<Product> products);
+    DomainProduct toProductDomain(EntityProduct product);
+    List<DomainProduct> toProductsDomain(List<EntityProduct> products);
 
     @InheritInverseConfiguration
-    @Mapping(target = "CodeBar", ignore = true)
-    Product toProductEntity(com.platzi.market.domain.Product product);
+    @Mapping(target = "codeBar", ignore = true)
+    EntityProduct toProductEntity(DomainProduct product);
 }

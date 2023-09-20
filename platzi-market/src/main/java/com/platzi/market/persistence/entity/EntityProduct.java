@@ -1,92 +1,90 @@
 package com.platzi.market.persistence.entity;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name="productos")
-public class Product {
+@Table(name="productos", schema = "public")
+public class EntityProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_producto")
-    private Integer ProductId;
+    private Integer productId;
 
     @Column(name = "nombre")
-    private String Name;
+    private String name;
 
     @Column(name="id_categoria")
-    private Integer CategotyId;
+    private Integer categoryId;
 
     @Column(name="codigo_barras")
-    private String CodeBar;
+    private String codeBar;
 
     @Column(name="precio_venta")
-    private Double SalePrice;
+    private Double salePrice;
 
     @Column(name="cantidad_stock")
-    private Integer QuantityStock;
+    private Integer quantityStock;
 
     @Column(name="estado")
-    private Boolean State;
+    private Boolean state;
 
     @ManyToOne
     @JoinColumn(name="id_categoria", insertable = false, updatable = false)
-    private Category Category;
+    private EntityCategory category;
 
     public Integer getProductId() {
-        return ProductId;
+        return productId;
     }
 
     public void setProductId(Integer productId) {
-        ProductId = productId;
+        this.productId = productId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public Integer getCategotyId() {
-        return CategotyId;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategotyId(Integer categotyId) {
-        CategotyId = categotyId;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCodeBar() {
-        return CodeBar;
+        return codeBar;
     }
 
     public void setCodeBar(String codeBar) {
-        CodeBar = codeBar;
+        this.codeBar = codeBar;
     }
 
     public Double getSalePrice() {
-        return SalePrice;
+        return salePrice;
     }
 
     public void setSalePrice(Double salePrice) {
-        SalePrice = salePrice;
+        this.salePrice = salePrice;
     }
 
     public Integer getQuantityStock() {
-        return QuantityStock;
+        return quantityStock;
     }
 
     public void setQuantityStock(Integer quantityStock) {
-        QuantityStock = quantityStock;
+        this.quantityStock = quantityStock;
     }
 
-    public Boolean getState() {
-        return State;
-    }
+    public Boolean getState() { return state; }
 
-    public void setState(Boolean state) {
-        State = state;
-    }
+    public void setState(Boolean state) { this.state = state; }
+
+    public EntityCategory getCategory() { return category; }
+
+    public void setCategory(EntityCategory category) { this.category = category; }
 }

@@ -6,43 +6,47 @@ import java.util.List;
 
 @Entity
 @Table(name="categorias")
-public class Category {
+public class EntityCategory {
 
     @Id
     @Column(name="id_categoria")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer CategoryId;
+    private Integer categoryId;
 
     @Column(name="descripcion")
-    private String Description;
+    private String description;
 
-    @Column(name="State")
-    private Boolean State;
+    @Column(name="estado")
+    private Boolean state;
 
-    @OneToMany(mappedBy="Category")
-    private List<Product> Products;
+    @OneToMany(mappedBy="category")
+    private List<EntityProduct> products;
 
     public Integer getCategoryId() {
-        return CategoryId;
+        return categoryId;
     }
 
     public void setCategoryId(Integer categoryId) {
-        CategoryId = categoryId;
+        this.categoryId = categoryId;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public Boolean getState() {
-        return State;
+        return state;
     }
 
     public void setState(Boolean state) {
-        State = state;
+        this.state = state;
     }
+
+    public List<EntityProduct> getProducts() { return products; }
+
+    public void setProducts(List<EntityProduct> products) { this.products = products; }
 }

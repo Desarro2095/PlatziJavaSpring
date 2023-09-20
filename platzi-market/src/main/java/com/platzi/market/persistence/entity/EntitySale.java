@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "compras")
-public class Sale {
+public class EntitySale {
     @Id
     @Column(name = "id_compra")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,10 +30,10 @@ public class Sale {
 
     @ManyToOne
     @JoinColumn(name="id_cliente", insertable = false, updatable = false)
-    private Client Client;
+    private EntityClient Client;
 
     @OneToMany(mappedBy = "Sale")
-    private List<ProductSale> ProductSales;
+    private List<EntityProductSale> ProductSales;
 
     public Integer getSaleId() {
         return SaleId;

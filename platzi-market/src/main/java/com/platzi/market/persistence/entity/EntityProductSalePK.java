@@ -6,7 +6,7 @@ import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class ProductSalePK implements Serializable {
+public class EntityProductSalePK implements Serializable {
 
     @Column(name="id_compra")
     private Integer SaleId;
