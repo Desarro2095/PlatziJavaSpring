@@ -1,8 +1,6 @@
 package com.platzi.market.domain;
 
-import java.time.LocalDateTime;
-
-public class PurchaseItem {
+public class DomainPurchaseItem {
     private int productId;
     private int quantity;
     private double total;

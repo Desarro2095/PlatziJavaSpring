@@ -3,14 +3,14 @@ package com.platzi.market.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Purchase {
+public class DomainPurchase {
     private int purchaseId;
     private String clientId;
     private LocalDateTime date;
     private String paymentMethod;
     private String comment;
     private String state;
-    private List<PurchaseItem> item;
+    private List<DomainPurchaseItem> items;
 
     public int getPurchaseId() {
         return purchaseId;
@@ -60,11 +60,11 @@ public class Purchase {
         this.state = state;
     }
 
-    public List<PurchaseItem> getItem() {
-        return item;
+    public List<DomainPurchaseItem> getItem() {
+        return items;
     }
 
-    public void setItem(List<PurchaseItem> item) {
-        this.item = item;
+    public void setItem(List<DomainPurchaseItem> item) {
+        this.items = item;
     }
 }

@@ -11,7 +11,7 @@ public class EntityClient {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer ClientId;
+    private String ClientId;
 
     @Column(name="nombre")
     private String FirstName;
@@ -20,7 +20,7 @@ public class EntityClient {
     private String LastName;
 
     @Column(name="celular")
-    private Integer CellPhone;
+    private long CellPhone;
 
     @Column(name="direccion")
     private String Address;
@@ -28,14 +28,14 @@ public class EntityClient {
     @Column(name="correo_electronico")
     private String Email;
 
-    @OneToMany(mappedBy="Client")
+    @OneToMany(mappedBy="client")
     private List<EntitySale> Sales;
 
-    public Integer getClientId() {
+    public String getClientId() {
         return ClientId;
     }
 
-    public void setClientId(Integer clientId) {
+    public void setClientId(String clientId) {
         ClientId = clientId;
     }
 
@@ -55,11 +55,11 @@ public class EntityClient {
         LastName = lastName;
     }
 
-    public Integer getCellPhone() {
+    public long getCellPhone() {
         return CellPhone;
     }
 
-    public void setCellPhone(Integer cellPhone) {
+    public void setCellPhone(long cellPhone) {
         CellPhone = cellPhone;
     }
 

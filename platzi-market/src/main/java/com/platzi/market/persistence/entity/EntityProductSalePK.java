@@ -9,24 +9,24 @@ import java.io.Serializable;
 public class EntityProductSalePK implements Serializable {
 
     @Column(name="id_compra")
-    private Integer SaleId;
+    private Integer saleId;
 
     @Column(name="id_producto")
-    private Integer ProductId;
+    private Integer productId;
 
     public Integer getSaleId() {
-        return SaleId;
+        return saleId;
     }
 
     public void setSaleId(Integer saleId) {
-        SaleId = saleId;
+        this.saleId = saleId;
     }
 
     public Integer getProductId() {
-        return ProductId;
+        return productId;
     }
 
     public void setProductId(Integer productId) {
-        ProductId = productId;
+        this.productId = productId;
     }
 }

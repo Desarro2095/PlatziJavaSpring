@@ -11,75 +11,82 @@ public class EntitySale {
     @Id
     @Column(name = "id_compra")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer SaleId;
+    private Integer saleId;
 
     @Column(name="id_cliente")
-    private Integer ClientId;
+    private String clientId;
 
     @Column(name="fecha")
-    private LocalDateTime Date;
+    private LocalDateTime date;
 
     @Column(name="medio_pago")
-    private Character PayForm;
+    private Character payForm;
 
     @Column(name="comentario")
-    private String Comment;
+    private String comment;
 
     @Column(name="estado")
-    private Character State;
+    private Character state;
 
     @ManyToOne
     @JoinColumn(name="id_cliente", insertable = false, updatable = false)
-    private EntityClient Client;
+    private EntityClient client;
 
-    @OneToMany(mappedBy = "Sale")
-    private List<EntityProductSale> ProductSales;
+    @OneToMany(mappedBy = "sale", cascade = {CascadeType.ALL})
+    private List<EntityProductSale> productSales;
 
     public Integer getSaleId() {
-        return SaleId;
+        return saleId;
     }
 
     public void setSaleId(Integer saleId) {
-        SaleId = saleId;
+        this.saleId = saleId;
     }
 
-    public Integer getClientId() {
-        return ClientId;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setClientId(Integer clientId) {
-        ClientId = clientId;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
     public LocalDateTime getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(LocalDateTime date) {
-        Date = date;
+        this.date = date;
     }
 
     public Character getPayForm() {
-        return PayForm;
+        return payForm;
     }
 
     public void setPayForm(Character payForm) {
-        PayForm = payForm;
+        this.payForm = payForm;
     }
 
     public String getComment() {
-        return Comment;
+        return comment;
     }
 
     public void setComment(String comment) {
-        Comment = comment;
+        this.comment = comment;
     }
 
     public Character getState() {
-        return State;
+        return state;
     }
 
     public void setState(Character state) {
-        State = state;
+        this.state = state;
     }
+    public EntityClient getClient() { return client; }
+
+    public void setClient(EntityClient client) { this.client = client; }
+
+    public List<EntityProductSale> getProductSales() { return productSales; }
+
+    public void setProductSales(List<EntityProductSale> productSales) { this.productSales = productSales; }
 }
